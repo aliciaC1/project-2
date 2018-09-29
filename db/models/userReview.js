@@ -10,12 +10,6 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    upvotes: {
-      type: DataTypes.INTEGER,
-      validate: {
-        min: 0
-      }
     }
   });
   UserReview.associate = function(models) {
