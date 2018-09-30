@@ -1,9 +1,9 @@
 "use strict";
 
 module.exports = {
-  up: function(queryInterface, Sequelize) {
+  up: function(queryInterface) {
     return queryInterface.bulkInsert(
-      "Products",
+      "products",
       [
         {
           name: "Sample Product",
@@ -16,7 +16,7 @@ module.exports = {
     );
   },
 
-  down: function(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("Products", null, {});
+  down: function(queryInterface) {
+    return queryInterface.bulkDelete("products", null, {});
   }
 };

@@ -1,9 +1,9 @@
 "use strict";
 
 module.exports = {
-  up: function(queryInterface, Sequelize) {
+  up: function(queryInterface) {
     return queryInterface.bulkInsert(
-      "UserReviews",
+      "userreviews",
       [
         {
           price: 25.0,
@@ -28,7 +28,7 @@ module.exports = {
     );
   },
 
-  down: function(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("UserReviews", null, {});
+  down: function(queryInterface) {
+    return queryInterface.bulkDelete("userreviews", null, {});
   }
 };
