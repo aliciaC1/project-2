@@ -48,7 +48,7 @@ function authenticate(email, pass, fn) {
 }
 
 router.get("/", function(req, res) {
-  res.render("login", {});
+  res.render("login");
 });
 
 router.post("/", function(req, res) {

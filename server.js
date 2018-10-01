@@ -6,6 +6,7 @@ var session = require("express-session");
 
 var db = require("./db/models");
 var loginController = require("./routes/login");
+var registerController = require("./routes/register");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -26,13 +27,19 @@ app.use(
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    helpers: {
+      errorField: function() {
+        return;
+      }
+    }
   })
 );
 app.set("view engine", "handlebars");
 
 // Routes
 app.use("/login", loginController);
+app.use("/register", registerController);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
