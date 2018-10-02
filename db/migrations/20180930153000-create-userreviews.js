@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable("userreviews", {
+    return queryInterface.createTable("UserReviews", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "users",
+          model: "Users",
           key: "id"
         },
         onUpdate: "cascade",
@@ -38,7 +38,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "products",
+          model: "Products",
           key: "id"
         },
         onUpdate: "cascade",
@@ -48,7 +48,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "locations",
+          model: "Locations",
           key: "id"
         },
         onUpdate: "cascade",
@@ -57,6 +57,6 @@ module.exports = {
     });
   },
   down: function(queryInterface) {
-    return queryInterface.dropTable("userreviews");
+    return queryInterface.dropTable("UserReviews");
   }
 };

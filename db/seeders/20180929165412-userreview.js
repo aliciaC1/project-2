@@ -3,7 +3,7 @@
 module.exports = {
   up: function(queryInterface) {
     return queryInterface.bulkInsert(
-      "userreviews",
+      "UserReviews",
       [
         {
           price: 25.0,
@@ -29,6 +29,6 @@ module.exports = {
   },
 
   down: function(queryInterface) {
-    return queryInterface.bulkDelete("userreviews", null, {});
+    return queryInterface.bulkDelete("UserReviews", null, {});
   }
 };

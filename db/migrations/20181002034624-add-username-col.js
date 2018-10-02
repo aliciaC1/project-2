@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.addColumn("users", "username", {
+    return queryInterface.addColumn("Users", "username", {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true
@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: function(queryInterface) {
-    return queryInterface.removeColumn("users", "username");
+    return queryInterface.removeColumn("Users", "username");
   }
 };

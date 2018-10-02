@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var UserReview = sequelize.define("userreview", {
+  var UserReview = sequelize.define("UserReview", {
     price: {
       type: DataTypes.FLOAT,
       allowNull: false,

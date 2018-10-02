@@ -2,14 +2,14 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.changeColumn("users", "email", {
+    return queryInterface.changeColumn("Users", "email", {
       type: Sequelize.STRING,
       allowNull: true
     });
   },
 
   down: function(queryInterface, Sequelize) {
-    return queryInterface.changeColumn("users", "email", {
+    return queryInterface.changeColumn("Users", "email", {
       type: Sequelize.STRING,
       allowNull: false
     });

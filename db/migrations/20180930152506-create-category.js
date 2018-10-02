@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable("categories", {
+    return queryInterface.createTable("Categories", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -21,6 +21,6 @@ module.exports = {
     });
   },
   down: function(queryInterface) {
-    return queryInterface.dropTable("categories");
+    return queryInterface.dropTable("Categories");
   }
 };

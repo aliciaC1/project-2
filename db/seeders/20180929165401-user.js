@@ -3,7 +3,7 @@
 module.exports = {
   up: function(queryInterface) {
     return queryInterface.bulkInsert(
-      "users",
+      "Users",
       [
         {
           name: "Sample User",
@@ -22,6 +22,6 @@ module.exports = {
   },
 
   down: function(queryInterface) {
-    return queryInterface.bulkDelete("users", null, {});
+    return queryInterface.bulkDelete("Users", null, {});
   }
 };
