@@ -26,12 +26,7 @@ app.use(
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main",
-    helpers: {
-      errorField: function() {
-        return;
-      }
-    }
+    defaultLayout: "main"
   })
 );
 app.set("view engine", "handlebars");

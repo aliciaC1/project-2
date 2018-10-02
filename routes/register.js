@@ -47,7 +47,13 @@ function register(name, email, pass, fn) {
 }
 
 router.get("/", function(req, res) {
-  res.render("register");
+  res.render("register", {
+    helpers: {
+      errorField: function() {
+        return;
+      }
+    }
+  });
 });
 
 router.post("/", function(req, res) {
