@@ -1,9 +1,13 @@
 require("dotenv").config();
+
+var createError = require("http-errors");
 var express = require("express");
 var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
 
+var indexController = require("./routes");
 var loginController = require("./routes/login");
 var registerController = require("./routes/register");
 
@@ -13,6 +17,7 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.static("public"));
 app.use(
   session({
@@ -32,10 +37,13 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+app.use("/", indexController);
 app.use("/login", loginController);
 app.use("/register", registerController);
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 app.use(function(err, req, res) {
   // set locals, only providing error in development

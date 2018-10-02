@@ -6,6 +6,30 @@ var db = require("../db/models");
 
 var router = express.Router();
 
+function register(name, userId, pass, fn) {
+  hash({ password: pass }, function(err, pass, salt, hash) {
+    if (err) {
+      return fn(err);
+    }
+    db.User.findOne({
+      username: userId
+    }).then(function(userResult) {
+      if (userResult) {
+        return fn(new Error("A user with that email already exists!"));
+      }
+      db.User.create({
+        name: name,
+        email: userId,
+        salt: salt,
+        hash: hash,
+        username: userId
+      }).then(function(result) {
+        return fn(null, result);
+      });
+    });
+  });
+}
+
 router.use(function(req, res, next) {
   var err = req.session.error;
   var msg = req.session.success;
@@ -20,31 +44,6 @@ router.use(function(req, res, next) {
   }
   next();
 });
-
-function register(name, email, pass, fn) {
-  hash({ password: pass }, function(err, pass, salt, hash) {
-    if (err) {
-      return fn(err);
-    }
-    db.User.findOne({
-      where: {
-        email: email
-      }
-    }).then(function(userResult) {
-      if (userResult) {
-        return fn(new Error("A user with that email already exists!"));
-      }
-      db.User.create({
-        name: name,
-        email: email,
-        salt: salt,
-        hash: hash
-      }).then(function(newUserResult) {
-        return fn(null, newUserResult);
-      });
-    });
-  });
-}
 
 router.get("/", function(req, res) {
   res.render("register", {
@@ -80,7 +79,6 @@ router.post("/", function(req, res) {
     errorFields.passwordConf = "Password do not match.";
   }
   if (Object.keys(errorFields).length > 0) {
-    res.locals.errorFields = errorFields;
     res.render("register", {
       errorFields: errorFields,
       helpers: {
@@ -97,8 +95,9 @@ router.post("/", function(req, res) {
     if (user) {
       req.session.regenerate(function() {
         req.session.user = user;
-        req.session.success = "Authenticated as " + user.name;
-        user.name +
+        req.session.success =
+          "Authenticated as " +
+          user.name +
           " click to <a href='/logout'>logout</a>. " +
           " You may now access <a href='/restricted'>/restricted</a>.";
         res.redirect("/register");

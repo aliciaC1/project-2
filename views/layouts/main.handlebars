@@ -12,6 +12,7 @@
 
   {{{body}}}
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
     window.fbAsyncInit = function () {
       FB.init({
@@ -32,8 +33,15 @@
     }(document, 'script', 'facebook-jssdk'));
 
     function statusChangeCallback(response) {
-      console.log("Received facebook login status");
-      console.log(response);
+      if (response.status === "connected") {
+        console.log(response);
+        $.post("/login/fb", {
+          accessToken: response.authResponse.accessToken,
+          userId: response.authResponse.userID
+        }, function(data){
+          window.location.replace("/restricted");
+        });
+      }
     }
 
     function checkLoginState() {
