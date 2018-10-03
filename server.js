@@ -41,6 +41,10 @@ app.use("/", indexController);
 app.use("/login", loginController);
 app.use("/register", registerController);
 
+// Routes (Luis)
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
+
 app.use(function(req, res, next) {
   next(createError(404));
 });

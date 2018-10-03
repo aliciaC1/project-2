@@ -20,10 +20,10 @@ router.use(function(req, res, next) {
   next();
 });
 
-function authenticate(userId, pass, fn) {
+function authenticate(email, pass, fn) {
   db.User.findOne({
     where: {
-      username: userId
+      username: email
     }
   })
     .then(function(userResult) {

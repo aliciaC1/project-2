@@ -6,23 +6,25 @@ var db = require("../db/models");
 
 var router = express.Router();
 
-function register(name, userId, pass, fn) {
+function register(name, email, pass, fn) {
   hash({ password: pass }, function(err, pass, salt, hash) {
     if (err) {
       return fn(err);
     }
     db.User.findOne({
-      username: userId
+      where: {
+        username: email
+      }
     }).then(function(userResult) {
       if (userResult) {
         return fn(new Error("A user with that email already exists!"));
       }
       db.User.create({
         name: name,
-        email: userId,
+        email: email,
+        username: email,
         salt: salt,
-        hash: hash,
-        username: userId
+        hash: hash
       }).then(function(result) {
         return fn(null, result);
       });

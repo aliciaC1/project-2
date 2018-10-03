@@ -1,6 +1,8 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
+var $exampleText = $("#example-userID");
 var $exampleDescription = $("#example-description");
+var $examplePrice = $("#example-price");
+var $exampleProduct = $("#example-productID");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
@@ -35,7 +37,7 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
+        .text(example.description)
         .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
@@ -65,21 +67,34 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
+    /*
     text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    description: $exampleDescription.val().trim(),
+    */
+    price: $examplePrice.val().trim(),
+    description: $exampleDescription.val().trim(),
+    UserId: 1,
+    ProductId: 1,
+    LocationId: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
   };
 
-  if (!(example.text && example.description)) {
+  /*
+  if (!(example.UserID && example.description && example.description && example.price)) {
     alert("You must enter an example text and description!");
     return;
   }
+  */
 
   API.saveExample(example).then(function() {
     refreshExamples();
   });
 
   $exampleText.val("");
+  $exampleProduct.val("");
   $exampleDescription.val("");
+  $examplePrice.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

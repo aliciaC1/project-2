@@ -9,6 +9,11 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     salt: {
       type: DataTypes.STRING,
       allowNull: false
