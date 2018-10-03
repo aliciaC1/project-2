@@ -2,7 +2,7 @@ var db = require("../db/models");
 
 module.exports = function (app) {
   // Load index page
-  app.get("/", function (req, res) {
+  app.get("/index", function (req, res) {
     db.UserReview.findAll({}).then(function (dbExamples) {
       res.render("index", {
         msg: "Welcome!",
