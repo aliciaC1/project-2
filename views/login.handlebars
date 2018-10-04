@@ -32,7 +32,7 @@
             apiKey: 'AIzaSyBh9Y5pvx1DYijufxGbRx-qpu_yjmclMyE',
             discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
             clientId: '590498702426-dlj9bk8nt5p46296juq86edcnlddg8nf.apps.googleusercontent.com',
-            scope: 'profile'
+            scope: 'profile email'
         }).then(function () {
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
             updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
@@ -41,7 +41,7 @@
 
     function updateSigninStatus(isSignedIn) {
         console.log("currentUser:");
-        console.log(gapi.auth2.getAuthInstance().currentUser);
+        console.log(gapi.auth2.getAuthInstance().currentUser.get());
         if (isSignedIn) {
             //makeApiCall();
         }
@@ -49,7 +49,7 @@
 
     function updateLoginStatus(user) {
         console.log("user:");
-        console.log(user);
+        console.log(user.get());
     }
 
     function handleSignInClick(event) {
