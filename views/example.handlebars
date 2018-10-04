@@ -1,10 +1,135 @@
 <div class="ui secondary pointing menu right floated">
-        <a class = "item" href="/">
+        <a class = "item" href="/logout">
             Log Out
         </a>
         </div>
+        <div class = "sidebar-container">
+<div class="ui left vertical very wide sidebar menu">
+ <table class="ui very basic collapsing celled table" style= "padding: 30px">
+                            <thead>
+                              <tr><th>Currency</th>
+                              <th>Price</th>
+                            </tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                        <i class="euro sign icon"></i>
+                                    <div class="content">
+                                      EUR
+                                      <div class="sub header">Euro
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                  <div id="convertedEUR"></div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                        <i class="pound sign icon"></i>                                    
+                                        <div class="content">
+                                        GBP
+                                      <div class="sub header">British Pound 
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                              <div id="convertedGBP"></div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                    <i class="yen sign icon"></i>
+                                    <div class="content">
+                                      CNY
+                                      <div class="sub header">Chinese Yuan Renminbi
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                  <div id="convertedCNY"></div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                    <i class="yen sign icon"></i>
+                                    <div class="content">
+                                      JPY
+                                      <div class="sub header">Japanese Yen
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                 <div id="convertedJPY"></div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                    <i class="dollar sign icon"></i>
+                                    <div class="content">
+                                      AUD
+                                      <div class="sub header">Austrailan Dollar 
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                  <div id="convertedAUD"></div>
+                                </td>
+                              </tr>
+                                <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                     <i class="dollar sign icon"></i>
+                                    <div class="content">
+                                      HKD
+                                      <div class="sub header">Hong Kong Dollar 
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                  <div id="convertedHKD"></div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                    <i class="won sign icon"></i>
+                                    <div class="content">
+                                      KRW
+                                      <div class="sub header">South Korean Won 
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                  <div id="convertedKRW"></div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h4 class="ui image header">
+                                    <i class="rupee sign icon"></i>
+                                    <div class="content">
+                                      INR
+                                      <div class="sub header">Indian Rupee
+                                    </div>
+                                  </div>
+                                </h4></td>
+                                <td>
+                                  <div id="convertedINR"></div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+</div>
+</div>
 
-<div id="add-price">
+  <div class="ui sidebar top vertical menu">
+  <div id="add-price">
 
         <h1>{{msg}}</h1>
         <h2>Add a t-shirt Price</h2>
@@ -29,11 +154,29 @@
           {{/each}}
         </ul>
       </div>
+  </div>
+  <div class="pusher">
+    <!-- Site content !-->
+ 
+
 
 
 <div class="container-info">
 
           <h5 class="card-title">T-Shirt</h5>
+          <h4 class ="flipcard">{{median}}</h4>
+         <div class="ui animated button submit button btnflp" tabindex="0" href="/example">
+                              <div class="visible content">Next</div>
+                              <div class="hidden content">
+                                <i class="right arrow icon"></i>
+                              </div>
+                          </div>
+                          <div class="ui animated button submit button side-bar" tabindex="0" href="/example">
+                              <div class="visible content">Next</div>
+                              <div class="hidden content">
+                                <i class="right arrow icon"></i>
+                              </div>
+                          </div>
           <img src="/imgs/tshirtplainfilled.png">
           <p>
             <strong>Longtitude and Latitude: </strong><span id="out"></span>
@@ -208,6 +351,7 @@
   <canvas id="myChart" height="100"></canvas>
 </div>
 </div>
+ </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
