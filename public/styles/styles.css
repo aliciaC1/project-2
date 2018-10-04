@@ -157,6 +157,7 @@ div.animated.button.submit {
     line-height: 1;
     font-weight: 100;
     text-align: center;
+    text-transform: lowercase;
 }
 
 
@@ -172,4 +173,8 @@ div.animated.button.submit {
     border: none;
     /* position: absolute; */
     /* margin-bottom: 60px; */
+}
+
+#myChart{
+    background-color: black;
 }
