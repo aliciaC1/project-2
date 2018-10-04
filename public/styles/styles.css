@@ -35,7 +35,7 @@ body{
     width: 70%;
     margin-top: 59px;
     margin-left: 450px;
-    opacity: .8;
+    opacity: 1;
     padding: 10px;
 }
 
@@ -65,13 +65,22 @@ h3.ui.header {
 }
 
 .iphone-img{
-    width: 43%;
+    width: 63%;
+    margin-left: 200px;
+}
+
+.appStore{
+    top: 38px;
+    right: 214px;
 }
 
 .apple-btn{
-    width: 35%;
+    width: 360px;
 }
 
+.gplay-btn{
+    width: 300px;
+}
 .app-icon{
     width: 16%;
 }
@@ -84,7 +93,8 @@ h3.ui.header {
 }
 
 .content-container{
-    padding: 20px; 
+    padding: 20px;
+    width: 90%;
 }
 
 .container {
@@ -169,7 +179,7 @@ div.animated.button.submit {
 .slogan {
     margin-left: 158px;
     padding: 10p;
-    margin-top: -732px;
+    margin-top: -555px;
     border: none;
     /* position: absolute; */
     /* margin-bottom: 60px; */

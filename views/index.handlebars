@@ -1,3 +1,4 @@
+<body style="background-color: #f3f3f3;">
 <!--Top Nav-->
 <div class="ui secondary pointing menu right floated">
   <a class="item" href="#features">
@@ -18,18 +19,22 @@
 </div>
 
 <!--Main cover-->
-     <img class = "cover-img" src="/imgs/coverimgwhite.png">
+     <img class = "cover-img hidden content" src="/imgs/coverimgwhite.png">
      <div class="ui text shape slogan">
         <div class="sides">
-          <div class="ui header side active"><h1>Haggle Better Worldwide</h1></div>
-          <div class="ui header side"><h1>Avoid scammers</h1> </div>
-          <div class="ui header side"><h1>Get the best price with HAGG</h1></div>
+          <div class="ui header side active"><h1>Haggle Better Worldwide <i class = "fighter jet icon"></i></h1></div>
+          <div class="ui header side"><h1>Avoid scammers <i class = "user secret icon"></i></h1> </div>
+          <div class="ui header side"><h1>Get the best price with HAGG <i class ="money bill alternate outline icon"></i></h1></div>
         </div>
     </div>
 
+
+<div class = "content-container ui center aligned grid">
+
+<div class = "row">
 <!--Features-->
 <div class = "center aligned">
-        <h3 class="ui horizontal divider header">Features</h3>
+        <h3 class="ui horizontal divider header" id="#features">Features</h3>
 
         <h4>Realtime Visual Displays </h4>
         <h4>Currency Converter</h4>
@@ -37,12 +42,12 @@
         <h4>Contribute and Add Prices to our Database</h4>
 
 </div>
-
+</div>
 <!--About-->
-   <div class = "center aligned" id="about"></div>
+   <div class ="center aligned" id="about"></div>
     <!--Technologies used-->
       <div id ="technologies-used">
-        <h3 class="ui horizontal divider header">Technologies Used: </h3>
+         <h3 class="ui horizontal divider header" id="#features">Technologies</h3>
           <div class="ui middle aligned divided list">
 
              <div class="item">
@@ -69,7 +74,7 @@
       </div>
     <!--Meet the team-->
      <div id = "team">
-        <h3 class="ui horizontal divider header">Meet the Team: </h3> 
+        <h3 class="ui horizontal divider header">Meet the Team</h3> 
           <div class = "ui center aligned grid">
             <div class = "four wide column">
               <div class="ui card">
@@ -134,13 +139,45 @@
         </div>
         </div>
 <!--Download-->
+     <h3 class="ui horizontal divider header">Download</h3> 
+<div class = "row">
 
-  <div class = "center aligned" id="download">
-      <h2>Get Hagg on your moblie and tablets </h2>
-        <img class="iphone-img" src="/imgs/iphoneipad.png">
-        <img class="app-icon" src="/imgs/iconapp.png">
-        <img class = "apple-btn" src="/imgs/appstoreapple.png">
-        <img class="gplay-btn" src="/imgs/google-play-badge.png">   
+  <div class = "ui grid center aligned" id="download">
+  
+      <div class = "row">
+
+      <div class="eight wide column">
+        <img class="iphone-img" src="/imgs/iphoneapp.png">
+      </div>
+      <div class = "eight wide column appStore">
+        <div class = "row">
+           <img class="app-icon" src="/imgs/iconapp.png">
+        </div>
+         <div class = "row">
+              <img class = "apple-btn" src="/imgs/app-download-buttons.png">
+                    <p>Get Hagg on your moblie and tablets </p>
+         </div>
+     
+        {{!-- <img class="gplay-btn" src="/imgs/google-play-badge.png">    --}}
+      </div>
+     
+       </div>
    </div>
-
+   </div>
+</div>
+<div class="ui footer basic segment">
+      <div class="ui container center aligned">
+       
+           <div class = "eight wide column">
+        <a href="https://github.com/tjtrebat/project-2"><i class ="code icon"></i> View Code</a>
+      </div>
+        <div class = "eight wide column">
+        <p>
+          Copyright HAGG 2018 
+        </p>
+        </div>
+       
+   
+      </div>
+    </div>
 <script src="/js/main.js"></script>
