@@ -56,7 +56,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: dataArray,
         datasets: [{
-            label: '# of Votes',
+            label: 'T-Shirt Price $',
             data: dataArray2,
             fill: true,
             backgroundColor: [
