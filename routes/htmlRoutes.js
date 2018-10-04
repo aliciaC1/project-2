@@ -11,6 +11,12 @@ module.exports = function(app) {
     });
   });
 
+// after login search
+  app.get("/search", function (req, res){
+    res.render("search");
+  });
+
+
   // Load example page and pass in an example by id
   app.get("/example", function(req, res) {
     var emptySQLNumber = 0;
