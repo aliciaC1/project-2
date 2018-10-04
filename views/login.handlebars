@@ -41,7 +41,7 @@
 
     function updateSigninStatus(isSignedIn) {
         console.log("currentUser:");
-        console.log(gapi.auth2.getAuthInstance().currentUser.get());
+        console.log(gapi.auth2.getAuthInstance().currentUser.getBasicProfile());
         if (isSignedIn) {
             //makeApiCall();
         }
@@ -49,7 +49,7 @@
 
     function updateLoginStatus(user) {
         console.log("user:");
-        console.log(user.get());
+        console.log(user.getBasicProfile());
     }
 
     function handleSignInClick(event) {
