@@ -18,7 +18,18 @@
   <title>HAGG</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+   <script>
+    function start() {
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '590498702426-dlj9bk8nt5p46296juq86edcnlddg8nf.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          //scope: 'https://www.google.com/m8/feeds/'
+        });
+      });
+    }
+  </script>
   <script src="/js/login.js"></script>
 </head>
 
