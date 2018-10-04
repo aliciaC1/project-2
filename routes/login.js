@@ -69,7 +69,7 @@ router.post("/", function(req, res) {
           user.email +
           " click to <a href='/logout'>logout</a>. " +
           " You may now access <a href='/restricted'>/restricted</a>.";
-        res.redirect("/search");
+        res.redirect("/restricted/search");
       });
     } else {
       req.session.error =

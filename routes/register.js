@@ -102,7 +102,7 @@ router.post("/", function(req, res) {
           user.name +
           " click to <a href='/logout'>logout</a>. " +
           " You may now access <a href='/restricted'>/restricted</a>.";
-        res.redirect("/register");
+        res.redirect("/restricted/search");
       });
     } else {
       if (err) {

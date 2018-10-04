@@ -11,8 +11,12 @@ module.exports = function(app) {
     });
   });
 
-// after login search
-  app.get("/search", function (req, res){
+//  search
+
+// app.get("/search", function (req, res){
+//   res.render("search");
+// });
+  app.get("restricted/search", function (req, res){
     res.render("search");
   });
 

@@ -17,13 +17,14 @@ router.get("/", function(req, res) {
   });
 });
 
-router.get("/restricted", restrict, function(req, res) {
-  res.send("Wahoo! restricted area, click to <a href='/logout'>logout</a>");
+router.get("/restricted/search", restrict, function(req, res) {
+  // res.send("Wahoo! restricted area, click to <a href='/logout'>logout</a>");
+  res.render("search");
 });
 
 router.get("/logout", function(req, res) {
   req.session.destroy(function() {
-    res.redirect("/login");
+    res.redirect("/");
   });
 });
 
