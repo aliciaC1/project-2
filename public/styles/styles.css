@@ -31,13 +31,13 @@ body{
 }
 
 
-.cover-img{
+.cover-img {
     width: 70%;
     margin-top: 59px;
-    margin-left: 368px;
-    opacity: 1;
+    margin-left: 450px;
+    opacity: .8;
+    padding: 10px;
 }
-
 
 h1{
     font-weight: 100;
@@ -53,15 +53,6 @@ h3.ui.header {
     font-weight: 100;
 }
 
-
-.slogan{
-    margin-left: 158px;
-    /* padding: 10px; */
-    margin-top: -427px;
-    /* position: absolute; */
-    /* padding: 20px;
-    background-color: whitesmoke; */
-}
 
 .ui.shape .side * {
     -webkit-backface-visibility: visible!important;
@@ -101,4 +92,84 @@ h3.ui.header {
     margin-top: 50px;
     width: 80%;
     margin-left: 140px;
+}
+
+.hagLogo{
+    width: 184px;
+    margin-bottom: -20px;
+}
+
+.ui.search.dropdown {
+    width: 393px;
+    height: 36px;
+    font-size: rem;
+    background-color: transparent;
+    text-align: center;
+    font-weight: 100;
+}
+
+.ui.shape .side * {
+    -webkit-backface-visibility: visible!important;
+    backface-visibility: visible!important;
+    height: 76px;
+    width: 600px;
+    text-align: center;
+    background-color: #ffffffd9;
+    padding: 20px;
+    font-weight: 100;
+}
+
+div.animated.button.submit {
+    margin-top: 56px;
+    margin=left: 10px;
+    background: #00000003;
+    margin-left: 493px;
+    font-weight: 100;
+    border: 1px solid #c6c6c63b;
+    width: 150px;
+}
+
+.ui.button{
+    background: #00000003;
+    font-weight: 100;
+    border: 1px solid #c6c6c63b;
+}
+
+.logo-login{
+    width: 195px;
+    padding: 20px;
+}
+
+.ui.animated.button {
+    position: relative;
+    overflow: hidden;
+    padding-right: 0!important;
+    vertical-align: middle;
+    z-index: 1;
+    width: 300px;
+}
+
+.ui.horizontal.divider {
+    display: table;
+    white-space: nowrap;
+    height: auto;
+    margin: '';
+    line-height: 1;
+    font-weight: 100;
+    text-align: center;
+}
+
+
+.ui.form .field .ui.input, .ui.form .fields .field .ui.input, .ui.form .wide.field .ui.input {
+    width: 300px;
+}
+
+
+.slogan {
+    margin-left: 158px;
+    padding: 10p;
+    margin-top: -732px;
+    border: none;
+    /* position: absolute; */
+    /* margin-bottom: 60px; */
 }
