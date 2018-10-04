@@ -32,3 +32,14 @@ setTimeout(() => {
       $(this).addClass('active');
   });             
 
+
+
+$( ".btnflp" ).click(function() {
+    $('.flipcard')
+    .transition('vertical flip')
+  });
+
+//   $(".side-bar").click(function(){
+//       $('.ui.labeled.icon.sidebar')
+//   .sidebar('toggle')
+//   });
