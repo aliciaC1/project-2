@@ -3,3 +3,42 @@
             Log Out
         </a>
         </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Shirt</h5>
+          <p>
+            <strong>Longtitude and Latitude: </strong><span id="out"></span>
+          </p>
+          <p>
+            <strong>Currency Exchange: </strong><span id="converted"></span><span> Yuan</span>
+          </p>
+          <p>
+            <strong>Median: </strong> {{median}}
+          </p>
+          <p>
+            <strong>ID</strong>: {{example.id}}</p>
+          <p>
+            <p id="avg" value="{{avg}}">
+              <strong>Text</strong>: {{avg}} <span> USD</span></p>
+            <strong>Description:</strong> {{example.description}}
+          </p>
+          <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="alpha">
+  <canvas id="myChart" style="width: 10px; height: 10px"></canvas>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="/js/currency.js"></script>
+
