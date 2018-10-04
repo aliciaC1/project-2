@@ -35,41 +35,22 @@
             scope: 'profile email'
         }).then(function () {
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            updateSigninStatus(gapi.auth2.getAuthInstance().currentUser);
         });
     }
 
-    function updateSigninStatus(isSignedIn) {
-        console.log("currentUser:");
-        console.log(gapi.auth2.getAuthInstance().currentUser.getBasicProfile());
-        if (isSignedIn) {
-            //makeApiCall();
-        }
-    }
-
-    function updateLoginStatus(user) {
-        console.log("user:");
-        console.log(user.getBasicProfile());
+    function updateSigninStatus(googleUser) {
+        console.log(googleUser.getAuthResponse().id_token);
+        console.log(googleUser.getBasicProfile());
     }
 
     function handleSignInClick(event) {
-        gapi.auth2.getAuthInstance().signIn().then(updateLoginStatus);
+        gapi.auth2.getAuthInstance().signIn().then(updateSigninStatus);
     }
 
     function handleSignOutClick(event) {
-        gapi.auth2.getAuthInstance().signOut().then(updateLoginStatus);
+        gapi.auth2.getAuthInstance().signOut().then(updateSigninStatus);
     }
-
-    /*function makeApiCall() {
-        gapi.client.people.people.get({
-            'resourceName': 'people/me',
-            'requestMask.includeField': 'person.names'
-        }).then(function (response) {
-            console.log('Hello, ' + response.result.names[0].givenName);
-        }, function (reason) {
-            console.log('Error: ' + reason.result.error.message);
-        });
-    }*/
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()">
