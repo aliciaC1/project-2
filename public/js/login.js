@@ -28,7 +28,9 @@ function checkLoginState() {
 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  $.post(
+  console.log("Logging in Google");
+  console.log(profile);
+  /*$.post(
     "/login/google",
     {
       userId: profile.getId(),
@@ -40,7 +42,7 @@ function onSignIn(googleUser) {
     function() {
       window.location.replace("/");
     }
-  );
+  );*/
 }
 
 $(document).ready(function() {
