@@ -10,8 +10,8 @@ function updateStatusCallback(response) {
           email: response.email,
           accessToken: accessToken
         },
-        function () {
-          window.location.replace("/");
+        function() {
+          console.log("User logged in Facebook.");
         }
       );
     });
@@ -26,26 +26,7 @@ function checkLoginState() {
   });
 }
 
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log("Logging in Google");
-  console.log(profile);
-  /*$.post(
-    "/login/google",
-    {
-      userId: profile.getId(),
-      name: profile.getName(),
-      email: profile.getEmail(),
-      imageUrl: profile.getImageUrl(),
-      accessToken: googleUser.getAuthResponse().id_token
-    },
-    function() {
-      window.location.replace("/");
-    }
-  );*/
-}
-
-$(document).ready(function() {
+$(document).ready(function () {
   $.ajaxSetup({ cache: true });
   $.getScript("https://connect.facebook.net/en_US/sdk.js", function () {
     FB.init({
@@ -54,6 +35,6 @@ $(document).ready(function() {
       xfbml: true,
       version: "v3.1"
     });
-    //checkLoginState();
+    checkLoginState();
   });
 });
