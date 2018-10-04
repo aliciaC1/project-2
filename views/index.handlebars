@@ -1,51 +1,145 @@
-<header>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo"> <img class="logo1" src="/public/imgs/logo1hag.png"> </a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#features">Features</a></li>
-        </li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#download">Download</a></li>
-        {{#if user}}
-        <li><a href="/logout">Logout</a></li>
-        {{else}}
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign Up</a></li>
-        {{/if}}
-      </ul>
-    </div>
-  </nav>
-</header>
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="example-text">Example Price</label>
-            <input type="text" id="example-price" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.description}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
+<!--Top Nav-->
+<div class="ui secondary pointing menu right floated">
+  <a class="item" href="#features">
+    Features
+  </a>
+  <a class="item" href="#about">
+    About
+  </a>
+  <a class="item" href="#download">
+    Download
+  </a>
+  <a class="item"href="/login">
+    Login 
+  </a>
+  <a class = "item" href="/register">
+    Sign Up
+  </a>        
 </div>
 
-<script src="/js/index.js"></script>
+<!--Main cover-->
+     <img class = "cover-img" src="../public/imgs/coverimgwhite.png">
+     <div class="ui text shape slogan">
+        <div class="sides">
+          <div class="ui header side active"><h1>Haggle Better Worldwide</h1></div>
+          <div class="ui header side"><h1>Avoid scammers</h1> </div>
+          <div class="ui header side"><h1>Get the best price with HAGG</h1></div>
+        </div>
+    </div>
+
+<!--Features-->
+<div class = "center aligned">
+        <h3 class="ui horizontal divider header">Features</h3>
+
+        <h4>Realtime Visual Displays </h4>
+        <h4>Currency Converter</h4>
+        <h4>Map with Geo-Location</h4>
+        <h4>Contribute and Add Prices to our Database</h4>
+
+</div>
+
+<!--About-->
+   <div class = "center aligned" id="about"></div>
+    <!--Technologies used-->
+      <div id ="technologies-used">
+        <h3 class="ui horizontal divider header">Technologies Used: </h3>
+          <div class="ui middle aligned divided list">
+
+             <div class="item">
+                <div class="right floated content">
+                  <div class="ui button">Add</div>
+                </div>
+                <img class="ui avatar image" src="/images/avatar2/small/lena.png">
+                <div class="content">
+                Lena
+                </div>
+            </div>
+
+             <div class="item">
+                <div class="right floated content">
+                  <div class="ui button">Add</div>
+                </div>
+                <img class="ui avatar image" src="/images/avatar2/small/lena.png">
+                <div class="content">
+                Lena
+                </div>
+            </div>
+                        
+           </div>
+      </div>
+    <!--Meet the team-->
+     <div id = "team">
+        <h3 class="ui horizontal divider header">Meet the Team: </h3> 
+          <div class = "ui center aligned grid">
+            <div class = "four wide column">
+              <div class="ui card">
+                <div class="content">
+                  <div class="center aligned header">Thomas J Trebat</div>
+                  <div class="center aligned description">
+                    <p>Backend: SQL Database & Login Authentication</p>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="center aligned author">
+                   <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class = "four wide column">
+          <div class="ui card">
+                <div class="content">
+                  <div class="center aligned header">Luis Rishi Puno</div>
+                  <div class="center aligned description">
+                    <p>Backend: Product Info</p>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="center aligned author">
+                    <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class ="four wide column">
+            <div class="ui card">
+                <div class="content">
+                  <div class="center aligned header">Brian Mejia</div>
+                  <div class="center aligned description">
+                    <p>Backend: Google Maps API / Geo-Location</p>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="center aligned author">
+                    <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class = "four wide column">
+                <div class="ui card">
+                <div class="content">
+                  <div class="center aligned header">Alicia Chan </div>
+                  <div class="center aligned description">
+                    <p>Front-End / UI Design</p>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="center aligned author">
+                    <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+<!--Download-->
+
+  <div class = "center aligned" id="download">
+      <h2>Get Hagg on your moblie and tablets </h2>
+        <img class="iphone-img" src="../public/imgs/iphoneipad.png">
+        <img class="app-icon" src="../public/imgs/iconapp.png">
+        <img class = "apple-btn" src="../public/imgs/appstoreapple.png">
+        <img class="gplay-btn" src="../public/imgs/google-play-badge.png">   
+   </div>
+        
