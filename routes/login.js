@@ -23,7 +23,7 @@ router.use(function(req, res, next) {
 function authenticate(email, pass, fn) {
   db.User.findOne({
     where: {
-      username: email
+      email: email
     }
   })
     .then(function(userResult) {
@@ -57,7 +57,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  authenticate(req.body.userId.trim(), req.body.password.trim(), function(
+  authenticate(req.body.email.trim(), req.body.password.trim(), function(
     err,
     user
   ) {
@@ -80,14 +80,12 @@ router.post("/", function(req, res) {
 });
 
 router.post("/fb", function(req, res) {
-  var accessToken = req.body.accessToken;
-  var userId = req.body.userId;
-  console.log("Access Token: " + accessToken);
-  console.log("User ID: " + userId);
   req.session.regenerate(function() {
     req.session.user = {
-      userId: userId,
-      accessToken: accessToken
+      username: req.body.userId,
+      name: req.body.name,
+      email: req.body.email,
+      accessToken: req.body.accessToken
     };
     return res.status(200).end();
   });
