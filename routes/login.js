@@ -95,26 +95,29 @@ router.post("/fb", function (req, res) {
   });
 });
 
-router.post("/google", function(req, res) {
+router.post("/google", function (req, res) {
   console.log("Received Google Access-Token: " + req.body.token);
   function verify() {
-    return new Promise(function(resolve, reject) {
-      var ticket = client.verifyIdToken({
+    return new Promise(function (resolve, reject) {
+      client.verifyIdToken({
         idToken: req.body.token,
         audience: process.env.GOOGLE_CLIENT_ID,
         scope: "profile email"
+      }).then(function (ticket) {
+        resolve(ticket.getPayload());
+      }).catch(function (err) {
+        reject(err);
       });
-      resolve(ticket.getPayload());
     });
   }
   verify()
-    .then(function(payload) {
+    .then(function (payload) {
       var userid = payload["sub"];
       console.log("User ID: " + userid);
       console.log(payload);
       res.json(payload);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
       res.status(500).end();
     });
