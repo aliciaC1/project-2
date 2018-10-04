@@ -13,9 +13,6 @@ module.exports = function(app) {
 
 //  search
 
-// app.get("/search", function (req, res){
-//   res.render("search");
-// });
   app.get("restricted/search", function (req, res){
     res.render("search");
   });
