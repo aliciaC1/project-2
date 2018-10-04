@@ -20,52 +20,118 @@ var ctx = $("#myChart");
 var dataArray = [];
 var dataArray2 = [];
 
-$.get("/api/examples", function(data) {
+$.get("/api/examples", function (data) {
     for (var i = 0; i < data.length; i++) {
         dataArray.push(data[i].createdAt);
         dataArray2.push(data[i].price);
-  }
+    }
+});
+Chart.defaults.LineWithLine = Chart.defaults.line;
+Chart.controllers.LineWithLine = Chart.controllers.line.extend({
+   draw: function(ease) {
+      Chart.controllers.line.prototype.draw.call(this, ease);
+
+      if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+         var activePoint = this.chart.tooltip._active[0],
+             ctx = this.chart.ctx,
+             x = activePoint.tooltipPosition().x,
+             topY = this.chart.scales['y-axis-0'].top,
+             bottomY = this.chart.scales['y-axis-0'].bottom;
+
+         // draw line
+         ctx.save();
+         ctx.beginPath();
+         ctx.moveTo(x, topY);
+         ctx.lineTo(x, bottomY);
+         ctx.lineWidth = 2;
+         ctx.strokeStyle = 'rgba(219, 21, 21, 0.8)';
+         ctx.stroke();
+         ctx.restore();
+      }
+    }
 });
 
 var myChart = new Chart(ctx, {
-  type: "line",
+    type: 'LineWithLine',
     data: {
         labels: dataArray,
         datasets: [{
-      {
-        label: "# of Votes",
+            label: 'T-Shirt Price $',
             data: dataArray2,
+            fill: true,
             backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)"
-      ],
+                "rgba(220,220,220,0.2)"
+            ],
             borderColor: [
-                "rgba(255,99,132,1)",
-                "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)"
-        ],
-            borderWidth: 1
-      }
-    ]
-  },
-  options: {
+                "rgba(0,0,0,1)"
+            ],
+            pointBorderColor: "rgba(0,0,0,0.5)",
+            pointBackgroundColor: "rgba(66, 134, 244, 0.5)",
+            pointBorderWidth: 8,
+            pointHoverRadius: 10,
+            borderWidth: 1, 
+            pointHoverBackgroundColor: "rgba(66, 134, 244, 0.5)",
+            pointHoverBorderColor: "rgba(0,0,0,0.5)"
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        labels: {
+            // This more specific font property overrides the global property
+            fontColor: 'white'
+        },
+        tooltips:{
+            intersect: false, 
+            callbacks: {
+                labelColor: function(tooltipItem, chart) {
+                    return {
+                        borderColor: 'rgb(0, 0, 0)',
+                        backgroundColor: 'rgb(247, 247, 247)'
+                    }
+                },
+                labelTextColor:function(tooltipItem, chart){
+                    return '#543453';
+                }
+            }
+            
+         },
+         layout: {
+            padding: {
+                left: 50,
+                right: 50,
+                top: 20,
+                bottom: 20
+            }
+        }, 
         scales: {
+            xAxes: [{
+                ticks: {
+                    display: false //this will remove only the label
+                },
+                gridLines: {
+                    display: false,
+                    color: "#FFFFFF"
+
+                  }
+                }], 
             yAxes: [{
-        {
-          ticks: {
-                    beginAtZero: true
-          }
-        }
+                ticks: {
+                    beginAtZero: true,
+                    callback: function(value, index, values) {
+                        return '$' + value;
+                    }
+                    
+                },
+                gridLines: {
+                    display: false,
+                    color: "#FFFFFF"
+                  }
             }]
         }
     }
+
+
 });
 
 //GeoLocation
