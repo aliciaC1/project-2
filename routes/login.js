@@ -80,6 +80,7 @@ router.post("/", function(req, res) {
 });
 
 router.post("/fb", function(req, res) {
+  console.log("Received Facebook Access-Token: " + req.body.accessToken);
   req.session.regenerate(function() {
     req.session.user = {
       username: req.body.userId,
@@ -92,15 +93,8 @@ router.post("/fb", function(req, res) {
 });
 
 router.post("/google", function(req, res) {
-  req.session.regenerate(function() {
-    req.session.user = {
-      username: req.body.userId,
-      name: req.body.name,
-      email: req.body.email,
-      accessToken: req.body.accessToken
-    };
-    return res.status(200).end();
-  });
+  console.log("Received Google Access-Token: " + req.body.accessToken);
+  res.status(200).end();
 });
 
 module.exports = router;

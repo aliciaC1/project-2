@@ -17,10 +17,11 @@
             </form>
             <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
                 data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="checkLoginState();"></div>
+            <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+            <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
         </div>
     </div>
 </div>
-
 
 <script type="text/javascript">
     function handleClientLoad() {
@@ -30,7 +31,6 @@
     function initClient() {
         gapi.client.init({
             apiKey: 'AIzaSyBh9Y5pvx1DYijufxGbRx-qpu_yjmclMyE',
-            discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
             clientId: '590498702426-dlj9bk8nt5p46296juq86edcnlddg8nf.apps.googleusercontent.com',
             scope: 'profile email'
         }).then(function () {
@@ -53,8 +53,4 @@
     }
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
-    onreadystatechange="if (this.readyState === 'complete') this.onload()">
-
-    </script>
-<button id="signin-button" onclick="handleSignInClick()">Sign In</button>
-<button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+    onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>

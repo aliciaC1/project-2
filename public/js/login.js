@@ -1,7 +1,7 @@
 function updateStatusCallback(response) {
   if (response.authResponse) {
     var accessToken = response.authResponse.accessToken;
-    FB.api("/me", null, { fields: "id,name,email" }, function (response) {
+    FB.api("/me", null, { fields: "id,name,email" }, function(response) {
       $.post(
         "/login/fb",
         {
@@ -21,14 +21,14 @@ function updateStatusCallback(response) {
 }
 
 function checkLoginState() {
-  FB.getLoginStatus(function (response) {
+  FB.getLoginStatus(function(response) {
     updateStatusCallback(response);
   });
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
   $.ajaxSetup({ cache: true });
-  $.getScript("https://connect.facebook.net/en_US/sdk.js", function () {
+  $.getScript("https://connect.facebook.net/en_US/sdk.js", function() {
     FB.init({
       appId: "258920414766195",
       cookie: true,
