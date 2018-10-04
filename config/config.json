@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "root",
+    "username": "tom",
     "password": "password",
     "database": "hagg_db",
     "host": "localhost",

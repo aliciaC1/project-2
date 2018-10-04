@@ -1,11 +1,14 @@
 var express = require("express");
 var hash = require("pbkdf2-password")();
+var authClient = require("google-auth-library");
 
 var db = require("../db/models");
 
 var router = express.Router();
 
-router.use(function(req, res, next) {
+var client = new authClient.OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+router.use(function (req, res, next) {
   var err = req.session.error;
   var msg = req.session.success;
   delete req.session.error;
@@ -26,7 +29,7 @@ function authenticate(email, pass, fn) {
       email: email
     }
   })
-    .then(function(userResult) {
+    .then(function (userResult) {
       if (!userResult) {
         return fn(new Error("cannot find user"));
       }
@@ -35,7 +38,7 @@ function authenticate(email, pass, fn) {
           password: pass,
           salt: userResult.salt
         },
-        function(err, pass, salt, hash) {
+        function (err, pass, salt, hash) {
           if (err) {
             return fn(err);
           }
@@ -46,23 +49,23 @@ function authenticate(email, pass, fn) {
         }
       );
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
       return fn(new Error(err.message));
     });
 }
 
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
   res.render("login");
 });
 
-router.post("/", function(req, res) {
-  authenticate(req.body.email.trim(), req.body.password.trim(), function(
+router.post("/", function (req, res) {
+  authenticate(req.body.email.trim(), req.body.password.trim(), function (
     err,
     user
   ) {
     if (user) {
-      req.session.regenerate(function() {
+      req.session.regenerate(function () {
         req.session.user = user;
         req.session.success =
           "Authenticated as " +
@@ -79,9 +82,9 @@ router.post("/", function(req, res) {
   });
 });
 
-router.post("/fb", function(req, res) {
+router.post("/fb", function (req, res) {
   console.log("Received Facebook Access-Token: " + req.body.accessToken);
-  req.session.regenerate(function() {
+  req.session.regenerate(function () {
     req.session.user = {
       username: req.body.userId,
       name: req.body.name,
@@ -93,8 +96,28 @@ router.post("/fb", function(req, res) {
 });
 
 router.post("/google", function(req, res) {
-  console.log("Received Google Access-Token: " + req.body.accessToken);
-  res.status(200).end();
+  console.log("Received Google Access-Token: " + req.body.token);
+  function verify() {
+    return new Promise(function(resolve, reject) {
+      var ticket = client.verifyIdToken({
+        idToken: req.body.token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+        scope: "profile email"
+      });
+      resolve(ticket.getPayload());
+    });
+  }
+  verify()
+    .then(function(payload) {
+      var userid = payload["sub"];
+      console.log("User ID: " + userid);
+      console.log(payload);
+      res.json(payload);
+    })
+    .catch(function(err) {
+      console.error(err);
+      res.status(500).end();
+    });
 });
 
 module.exports = router;

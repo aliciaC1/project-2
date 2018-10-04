@@ -1,9 +1,9 @@
 
-<div class = "ui center aligned grid">
-    <div class = "container-login ui center aligned grid" style="margin-top: 100px;">
+<div class="ui center aligned grid">
+    <div class="container-login ui center aligned grid" style="margin-top: 100px;">
         <div class="ui center aligned basic segment">
-            <div class = "row">
-            <img class = "logo-login" src="/imgs/logocaps.png">
+            <div class="row">
+            <img class="logo-login" src="/imgs/logocaps.png">
             </div>
            
                 <div class="ui vertical animated button" tabindex="0" id="signin-button" onclick="handleSignInClick()">
@@ -15,7 +15,7 @@
                 <div class="ui horizontal divider">
                   or
                 </div>
-                <form method = "POST" action = "/login">
+                <form method="POST" action="/login">
                 <div class="ui form">
                         <div class="field">
                           <div class="ui input">
@@ -32,15 +32,15 @@
                       </div>
                 </form>
                       <div class="ui divider"></div>
-                      <div class = "row">
+                      <div class="row">
                         {{#if message}}
                         <p>{{{ message }}}</p>
                         {{/if}}
                       </div>
-                      <a class ="" href="/register">Forgot your username or password? </a>
-                      <p class ="">Don't have an account <a href="/register">Sign Up</a></p>
+                      <a href="/register">Forgot your username or password? </a>
+                      <p>Don't have an account <a href="/register">Sign Up</a></p>
                           <a href="/">← Back To Home</a>
-                      <p class ="" >By logging in you agree to Hagg's Terms & Conditions and Privacy Policy</p> <br>
+                      <p>By logging in you agree to Hagg's Terms & Conditions and Privacy Policy</p> <br>
                     </div>
                 </div>
         </div>
@@ -66,6 +66,12 @@
     function updateSigninStatus(googleUser) {
         console.log(googleUser.getAuthResponse().id_token);
         console.log(googleUser.getBasicProfile());
+        $.post("/login/google", {
+            token: googleUser.getAuthResponse().id_token
+        }, function(data) {
+            console.log("Received payload");
+            console.log(data);
+        });
     }
 
     function handleSignInClick(event) {
@@ -73,9 +79,8 @@
     }
 
     function handleSignOutClick(event) {
-        gapi.auth2.getAuthInstance().signOut().then(updateSigninStatus);
+        gapi.auth2.getAuthInstance().signOut();
     }
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-<script src="/js/main.js"></script>
