@@ -17,8 +17,6 @@
             </form>
             <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
                 data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="checkLoginState();"></div>
-            <button id="authorize-button">Authorize</button>
-            <button id="signout-button">Sign Out</button>
         </div>
     </div>
 </div>
@@ -42,18 +40,24 @@
     }
 
     function updateSigninStatus(isSignedIn) {
-        console.log(gapi.auth2.getAuthInstance());
+        console.log("currentUser:");
+        console.log(gapi.auth2.getAuthInstance().currentUser);
         if (isSignedIn) {
             //makeApiCall();
         }
     }
 
+    function updateLoginStatus(user) {
+        console.log("user:");
+        console.log(user);
+    }
+
     function handleSignInClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
+        gapi.auth2.getAuthInstance().signIn().then(updateLoginStatus);
     }
 
     function handleSignOutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
+        gapi.auth2.getAuthInstance().signOut().then(updateLoginStatus);
     }
 
     /*function makeApiCall() {
