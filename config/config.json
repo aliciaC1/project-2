@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "JPmenace13!",
+    "password": null,
     "database": "hagg_db",
     "host": "localhost",
     "dialect": "mysql"
