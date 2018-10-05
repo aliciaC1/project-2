@@ -104,13 +104,8 @@ router.post("/google", function (req, res) {
           name: payload["name"],
           email: payload["email"]
         };
-        return res.status(200).end();
+        return res.json(req.session.user);
       });
-
-      var userid = ;
-      console.log("User ID: " + userid);
-      console.log(payload);
-      res.json(payload);
     })
     .catch(function (err) {
       console.error(err);
