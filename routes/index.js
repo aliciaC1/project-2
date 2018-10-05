@@ -24,7 +24,7 @@ router.get("/restricted/search", restrict, function(req, res) {
   });
 });
 
-router.get("//example/:location/:product", restrict, function(req, res) {
+router.get("/example/:location/:product", restrict, function(req, res) {
   // res.send("Wahoo! restricted area, click to <a href='/logout'>logout</a>");
   res.render("example", {
     user: req.session.user
