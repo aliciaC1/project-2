@@ -20,7 +20,22 @@ module.exports = function(app) {
 
   // Create a new examples
   app.post("/api/examples", function(req, res) {
-    db.UserReview.create(req.body).then(function(UserReview) {
+    /*
+db.Location.create({
+     name: "Name",
+     lat: 24.0,
+     lng: 432
+   }).then(function(insertedId){
+
+   });
+    */
+    db.UserReview.create({
+      UserId: req.session.user.id,
+      price: req.body.price,
+      description: req.body.description,
+      ProductId: req.body.product,
+      LocationId: req.body.location
+    }).then(function(UserReview) {
       res.json(UserReview);
     });
   });
