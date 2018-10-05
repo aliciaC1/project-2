@@ -1,6 +1,16 @@
 var db = require("../db/models");
 
 module.exports = function(app) {
+
+  function restrict(req, res, next) {
+    if (req.session.user) {
+      next();
+    } else {
+      req.session.error = "Access denied!";
+      res.redirect("/login");
+    }
+  }
+
   // Load index page
   app.get("/index", function(req, res) {
     db.UserReview.findAll({}).then(function(dbExamples) {
@@ -13,13 +23,19 @@ module.exports = function(app) {
 
 //  search
 
-  app.get("restricted/search", function (req, res){
+  app.get("restricted/search", restrict, function (req, res){
     res.render("search");
   });
 
+  app.get("/restricted/search", restrict, function(req, res) {
+    // res.send("Wahoo! restricted area, click to <a href='/logout'>logout</a>");
+    res.render("search", {
+      user: req.session.user
+    });
+  });
 
   // Load example page and pass in an example by id
-  app.get("/example/:location/:product", function (req, res) {
+  app.get("/example/:location/:product", restrict, function (req, res) {
 
     var locationID = req.params.location;
     var productID = req.params.product;
