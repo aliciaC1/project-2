@@ -63,11 +63,13 @@ module.exports = function(app) {
       //Min Functionality
       var min = Math.min(...dataArray);
       res.render('example', {
-        example: dbExamples[0],
+        example: dbExamples,
         avg: parseFloat(avg).toFixed(2),
         median: medianDisplay,
         max: max,
-        min: min
+        min: min,
+        location: locationID,
+        product: productID
       });
     });
   });
