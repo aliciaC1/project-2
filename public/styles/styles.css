@@ -9,7 +9,7 @@
     position: absolute;
     margin-top: 221px;
     width: 60%;
-    margin-left: 140px;
+    margin-left: 10%;
 }
 
 
@@ -290,4 +290,61 @@ h2.ui.header.titleproduct{
     padding: 10px;
     margin-left: 79px;
     margin-top: 20px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .container {
+        margin-left: 10%;
+    }
+}
+
+
+
+@media only screen and (max-width: 480px) {
+    .container {       
+    margin-left: 21%;
+    }
+}
+
+@media only screen and (max-width: 429px) {
+    .container {       
+        margin-left: 10%;
+        margin-top: 100px;
+    }
+    .ui.search.dropdown {
+        width: 280px;
+        height: 36px;
+        font-size: 1srem;
+        background-color: transparent;
+        text-align: center;
+        font-weight: 100;
+    }
+    #searchResult.button{
+        width: 280px;
+    }
+    
+}
+
+@media only screen and (max-width: 320px) {
+    .container {       
+        margin-left: 10%;
+        margin-top: 100px;
+    }
+    .ui.search.dropdown {
+        width: 230px;
+        height: 36px;
+        font-size: 1srem;
+        background-color: transparent;
+        text-align: center;
+        font-weight: 100;
+    }
+    #searchResult.button{
+        width: 230px;
+    }
+    
+    .hagLogo{
+        width: 134px; 
+    }
 }
