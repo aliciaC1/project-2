@@ -194,8 +194,9 @@ div.animated.button.submit {
 
 .productInfo{
     width: 60%;
-    left: 29%;
+    /* left: 22%; */
     position: relative;
+    display: inline-block;
 }
 
 .ui.vertical.menu {
@@ -204,9 +205,10 @@ div.animated.button.submit {
 
 .cchart{
     width: 60%;
-    left: 26%;
+    left: 22%;
     top: 36px;
     position: relative;
+    display: inline-block;
  }
 
  .ui.header>.image:not(.icon), .ui.header>img {
@@ -238,8 +240,10 @@ div.animated.button.submit {
 }
 
 .block.ui.header {
-    height: 95px;
-    width: 376px;
+    height: 40%;
+    width: 40%;
+    /* height: 95px;
+    width: 376px; */
     font-size: 4rem;
     float: right;
     margin-top: 100px;
@@ -275,13 +279,16 @@ div.animated.button.submit {
     position: relative;
     padding: 10px;
     top: 33px;
+    display: inline-block;
 }
 .map-container {
-    margin-left: 35%;
-    margin-top: 153px;
-    width: 60%;
+    margin-left: 27.5%;
+    margin-left: 27.5;
+    margin-top: 73px;
+    width: 75%;
+    display: inline-block;
+    position: relative;
     margin-bottom: 93px;
-   
 }
 
 
@@ -293,10 +300,82 @@ h2.ui.header.titleproduct{
 }
 
 
+@media only screen and (max-width: 1350px) {
+    .ui.vertical.menu {
+        width: 23rem;
+    }
+    .block.ui.header {
+        height: 40%;
+        width: 39%;
+        font-size: 4rem;
+        float: right;
+        margin-top: 100px;
+        margin-right: 20px;
+        /* margin-left: 67px; */
+        background: tansparent;
+        /* padding-bottom: 0px; */
+        background-color: transparent;
+    }
+
+}
+@media only screen and (max-width: 850px) {
+    .block.ui.header {
+        height: 40%;
+        width: 62%;
+        font-size: 4rem;
+        float: right;
+        margin-top: 100px;
+        margin-right: 67px;
+        /* margin-left: 67px; */
+        background: tansparent;
+        /* padding-bottom: 0px; */
+        background-color: transparent;
+    }
+    .productInfo {
+        width: 60%;
+        left: 5%;
+        position: relative;
+    }
+
+}
+
 
 @media only screen and (max-width: 768px) {
     .container {
         margin-left: 10%;
+    }
+    .productInfo {
+        width: 60%;
+        left: 2%;
+        position: relative;
+    }
+    .block.ui.header {
+        height: 40%;
+        width: 62%;
+        font-size: 4rem;
+        float: right;
+        margin-top: 44px;
+        margin-right: 73px;
+        /* margin-left: 67px; */
+        background: tansparent;
+        /* padding-bottom: 0px; */
+        background-color: transparent;
+    }
+    #myChart{
+        display: block;
+        height: 202px;
+        width: 502px;
+    
+    }
+    .cchart {
+        width: 60%;
+        left: 19%;
+        top: 36px;
+        position: relative;
+        display: inline-block;
+    }
+    .ui.vertical.menu {
+        width: 19rem;
     }
 }
 
@@ -348,3 +427,64 @@ h2.ui.header.titleproduct{
         width: 134px; 
     }
 }
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    [class*="mobile hidden"],
+    [class*="tablet only"]:not(.mobile),
+    [class*="computer only"]:not(.mobile),
+    [class*="large screen only"]:not(.mobile),
+    [class*="widescreen only"]:not(.mobile),
+    [class*="or lower hidden"] {
+      display: none !important;
+    }
+  }
+  
+  /* Tablet / iPad Portrait */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    [class*="mobile only"]:not(.tablet),
+    [class*="tablet hidden"],
+    [class*="computer only"]:not(.tablet),
+    [class*="large screen only"]:not(.tablet),
+    [class*="widescreen only"]:not(.tablet),
+    [class*="or lower hidden"]:not(.mobile) {
+      display: none !important;
+    }
+  }
+  
+  /* Computer / Desktop / iPad Landscape */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    [class*="mobile only"]:not(.computer),
+    [class*="tablet only"]:not(.computer),
+    [class*="computer hidden"],
+    [class*="large screen only"]:not(.computer),
+    [class*="widescreen only"]:not(.computer),
+    [class*="or lower hidden"]:not(.tablet):not(.mobile) {
+      display: none !important;
+    }
+  }
+  
+  /* Large Monitor */
+  @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+    [class*="mobile only"]:not([class*="large screen"]),
+    [class*="tablet only"]:not([class*="large screen"]),
+    [class*="computer only"]:not([class*="large screen"]),
+    [class*="large screen hidden"],
+    [class*="widescreen only"]:not([class*="large screen"]),
+    [class*="or lower hidden"]:not(.computer):not(.tablet):not(.mobile) {
+      display: none !important;
+    }
+  }
+  
+  /* Widescreen Monitor */
+  @media only screen and (min-width: 1920px) {
+    [class*="mobile only"]:not([class*="widescreen"]),
+    [class*="tablet only"]:not([class*="widescreen"]),
+    [class*="computer only"]:not([class*="widescreen"]),
+    [class*="large screen only"]:not([class*="widescreen"]),
+    [class*="widescreen hidden"],
+    [class*="widescreen or lower hidden"] {
+      display: none !important;
+    }
+  }
