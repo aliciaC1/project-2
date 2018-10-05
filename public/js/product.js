@@ -1,4 +1,3 @@
-
 // set endpoint and your access key
 var endpoint = "live";
 var access_key = "4a0fc544f94ec0f2154021de9108a5f3";
