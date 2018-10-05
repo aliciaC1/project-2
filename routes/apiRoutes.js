@@ -10,6 +10,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/maps", function(req, res) {
+    db.Location.findAll({
+      //include: [db.User, db.Product, db.Location]
+    }).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
   // Create a new examples
   app.post("/api/examples", function(req, res) {
     db.UserReview.create(req.body).then(function(UserReview) {
