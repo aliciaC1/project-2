@@ -1,50 +1,49 @@
-
 <div class="ui center aligned grid">
     <div class="container-login ui center aligned grid" style="margin-top: 100px;">
         <div class="ui center aligned basic segment">
             <div class="row">
-            <img class="logo-login" src="/imgs/logocaps.png">
+                <img class="logo-login" src="/imgs/logocaps.png">
             </div>
-           
-                <div class="ui vertical animated button" tabindex="0" id="signin-button" onclick="handleSignInClick()">
-                    <div class="hidden content"> Sign in with Google</div>
-                    <div class="visible content">
-                        <i class="google icon yellow"></i>
-                    </div>
-                  </div>
-                <div class="ui horizontal divider">
-                  or
+
+            <div class="ui vertical animated button" tabindex="0" id="signin-button" onclick="handleSignInClick()">
+                <div class="hidden content"> Sign in with Google</div>
+                <div class="visible content">
+                    <i class="google icon yellow"></i>
                 </div>
-                <form method="POST" action="/login">
+            </div>
+            <div class="ui horizontal divider">
+                or
+            </div>
+            <form method="POST" action="/login">
                 <div class="ui form">
-                        <div class="field">
-                          <div class="ui input">
+                    <div class="field">
+                        <div class="ui input">
                             <input type="text" placeholder="email" id="id_email" name="email">
-                          </div>
                         </div>
-                        <div class="field">
-                          <div class="ui left icon input">
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
                             <input type="password" placeholder="password" id="id_password" name="password">
                             <i class="lock icon"></i>
-                          </div>
                         </div>
-                           <button type="submit">Login</button>
-                      </div>
-                </form>
-                      <div class="ui divider"></div>
-                      <div class="row">
-                        {{#if message}}
-                        <p>{{{ message }}}</p>
-                        {{/if}}
-                      </div>
-                      <a href="/register">Forgot your username or password? </a>
-                      <p>Don't have an account <a href="/register">Sign Up</a></p>
-                          <a href="/">← Back To Home</a>
-                      <p>By logging in you agree to Hagg's Terms & Conditions and Privacy Policy</p> <br>
                     </div>
+                    <button type="submit">Login</button>
                 </div>
+            </form>
+            <button id="handleGoogleLogin">Login with Google</button>
+            <div class="ui divider"></div>
+            <div class="row">
+                {{#if message}}
+                <p>{{{ message }}}</p>
+                {{/if}}
+            </div>
+            <a href="/register">Forgot your username or password? </a>
+            <p>Don't have an account <a href="/register">Sign Up</a></p>
+            <a href="/">← Back To Home</a>
+            <p>By logging in you agree to Hagg's Terms & Conditions and Privacy Policy</p> <br>
         </div>
     </div>
+</div>
 
 
 <script type="text/javascript">
@@ -59,16 +58,14 @@
             scope: 'profile email'
         }).then(function () {
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-            updateSigninStatus(gapi.auth2.getAuthInstance().currentUser.get());
+            //updateSigninStatus(gapi.auth2.getAuthInstance().currentUser.get());
         });
     }
 
     function updateSigninStatus(googleUser) {
-        console.log(googleUser.getAuthResponse().id_token);
-        console.log(googleUser.getBasicProfile());
         $.post("/login/google", {
             token: googleUser.getAuthResponse().id_token
-        }, function(data) {
+        }, function (data) {
             console.log("Received payload");
             console.log(data);
         });
@@ -81,6 +78,10 @@
     function handleSignOutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
     }
+
+    $(document).ready(function(){
+       $("#handleGoogleLogin").click(handleSignInClick);
+    });
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>

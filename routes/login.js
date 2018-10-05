@@ -82,21 +82,7 @@ router.post("/", function (req, res) {
   });
 });
 
-router.post("/fb", function (req, res) {
-  console.log("Received Facebook Access-Token: " + req.body.accessToken);
-  req.session.regenerate(function () {
-    req.session.user = {
-      username: req.body.userId,
-      name: req.body.name,
-      email: req.body.email,
-      accessToken: req.body.accessToken
-    };
-    return res.status(200).end();
-  });
-});
-
 router.post("/google", function (req, res) {
-  console.log("Received Google Access-Token: " + req.body.token);
   function verify() {
     return new Promise(function (resolve, reject) {
       client.verifyIdToken({
@@ -112,7 +98,16 @@ router.post("/google", function (req, res) {
   }
   verify()
     .then(function (payload) {
-      var userid = payload["sub"];
+      req.session.regenerate(function () {
+        req.session.user = {
+          username: payload["sub"],
+          name: payload["name"],
+          email: payload["email"]
+        };
+        return res.status(200).end();
+      });
+
+      var userid = ;
       console.log("User ID: " + userid);
       console.log(payload);
       res.json(payload);
