@@ -101,7 +101,7 @@ router.post("/", function(req, res) {
           "Authenticated as " +
           user.name +
           " click to <a href='/logout'>logout</a>. " +
-          " You may now access <a href='/restricted'>/restricted</a>.";
+          " You may now access <a href='/restricted/search'>HAGG search</a>.";
         res.redirect("/restricted/search");
       });
     } else {
