@@ -1,3 +1,4 @@
+ {{!-- #region: top header    --}}
    <div class="ui secondary pointing menu right floated">
         <a class="item active">{{user.name}}</a>   
         <a class = "item" href="/restricted/search">Search</a>
@@ -5,11 +6,11 @@
             Log Out
         </a>
         </div>
+{{!-- #end-region top header --}}
 
-    <div class="ui left fixed vertical menu">
-        <!-- <div class="item">
-          <img class="ui mini image" src="../public/imgs/logocaps.png">
-        </div> -->
+{{!-- #region: vertical side bar fixed  --}}
+    <div class="ui left fixed vertical menu" style="overflow-y:auto;">
+      {{!-- currency conversion table --}}
         <div class="item">
             <table class="ui very basic collapsing celled table" style= "padding: 30px">
                 <thead>
@@ -132,30 +133,30 @@
                 </tbody>
               </table>
         </div>
+ {{!-- user price add feed  --}}
+  {{!-- {{#each examples}} --}}
         <div class = "item"> 
           <div class="ui feed">           
             <div class="event">
-               {{!-- {{#each examples}} --}}
               <div class="label">
                 <img src="/imgs/oldhag.png">
               </div>
               <div class="content">
                 <div class="date">
-                  2 days ago {{createdAt}}
+                  2 days ago {{db.userReview.createdAt}}
                 </div>
                 <div class="summary">
-                   user2 {{this.user}} added dog tee{{this.description}} for $8.73{{this.price}}. 
+                   Hagger A {{this.user}} added NY Tee{{this.description}} for $8.73{{this.price}}. 
                 </div>
               </div>
-                  {{!-- {{/each}} --}}
             </div>    
           </div> 
           </div>
+  {{!-- {{/each}} --}}
             {{!-- {{#each examples}} --}}
-           <div class = "item"> 
+        <div class = "item"> 
           <div class="ui feed">           
-            <div class="event">
-             
+            <div class="event">           
               <div class="label">
                 <img src="/imgs/oldhag.png">
               </div>
@@ -164,26 +165,42 @@
                   3 days ago {{createdAt}}
                 </div>
                 <div class="summary">
-                   user3 {{this.user}} added sunshine tee{{this.description}} for $5.99{{this.price}}. 
+                   Hagger D {{this.user}} added Sunshine Tee{{this.description}} for $5.99{{this.price}}. 
                 </div>
-              </div>
-                
+              </div>               
             </div>    
           </div> 
           </div>
             {{!-- {{/each}} --}}
+            <div class = "item"> 
+          <div class="ui feed">           
+            <div class="event">
+              <div class="label">
+                <img src="/imgs/oldhag.png">
+              </div>
+              <div class="content">
+                <div class="date">
+                  7 days ago {{createdAt}}
+                </div>
+                <div class="summary">
+                   Hagger T {{this.user}} added 'Merica' Tee{{this.description}} for $12.50{{this.price}}. 
+                </div>
+              </div>
+            </div>    
+          </div> 
+          </div>
           <div class = "item">
               <img class = "sidehaglogo" src="/imgs/logocaps.png" style= "width: 202px; margin-left: 60px; padding: 40px;"> 
           </div>
       </div>
 
+{{!-- #end-region vertical sidebar fixed --}}
+
+{{!-- #region: product dashboard  --}}
 <div class="ui grid center aligned product-dashboard">
- {{!-- <div class="sixteen wide column">
-   <img class ="logoProduct" src="/imgs/logocaps.png">
- </div> --}}
  {{!-- product info --}}
   <div class="sixteen wide center aligned column">
-      <div class="productInfo ">   
+      <div class="productInfo container">   
         <h4 class="ui horizontal divider header">
                 <i class="info circle icon"></i>
                 product
@@ -208,7 +225,8 @@
               ${{avg}}
           </h3> 
         </div> 
-</div>
+    </div>
+    {{!-- add price pop-up --}}
           <div class="ui flowing basic popup bottom center transition hidden" style="width: 355px; top: 121px; left: -146.906px; bottom: auto; right: auto; display: block !important;">
                  <div class="ui center aligned basic segment addPrice">
             <h4 class="ui horizontal divider header">
@@ -246,12 +264,8 @@
         </div>
           </div>                    
       </div>
-  </div>
-
-  {{!-- <!--add price--> / map shape  --}}
-  {{!-- <div class="eight wide column">
-     <div id="map"></div>    
-  </div> --}}
+  </div>  
+  </div> 
   {{!-- <--! Chart--> --}}
    <div class="sixteen wide center aligned column">
       <div class = "cchart container">
@@ -265,17 +279,18 @@
       </div>
    </div>
    <div class = "sixteen wide center aligned column">
-     <div class = "map-container">
+     <div class = "container">
+     <div class = "map-container ">
         <h4 class="ui horizontal divider header">
                 <i class="map icon"></i>
                 map
               </h4>
      <div id="map"></div>  
      </div>
-     
+     </div>    
    </div>
 </div>  
-
+{{!-- #end-region: product dashboard --}}
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
