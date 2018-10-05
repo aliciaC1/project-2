@@ -1,14 +1,3 @@
-body{
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 200;
-}
-
-
-.list-group-item {
-    line-height: 2.5;
-}
-
-
 .main-logo{
     position: absolute;
     margin-left: 68px;
@@ -187,4 +176,118 @@ div.animated.button.submit {
 
 #myChart{
     background-color: black;
+}
+
+.addPrice{
+    padding: 10px;
+    width: 300px;
+    /* position:relative; */
+}
+
+.ui.label{
+    width: 36px;
+}
+
+.ui.vertical.curBTN.animated.button{
+    width: 45px;
+}
+
+.productInfo{
+    width: 60%;
+    left: 29%;
+    position: relative;
+}
+
+.ui.vertical.menu {
+    width: 25rem;
+}
+
+.cchart{
+    width: 60%;
+    left: 26%;
+    top: 36px;
+    position: relative;
+ }
+
+ .ui.header>.image:not(.icon), .ui.header>img {
+    display: inline-block;
+    margin-top: .14285714em;
+    width: 6.5em;
+    height: auto;
+    vertical-align: middle;
+}
+
+.ui.aligned.grid .column>.segment:not(.compact):not(.attached), .ui.grid .aligned.row>.column>.segment:not(.compact):not(.attached) {
+    width: 57%;
+}
+
+.product-dashboard.ui.grid{
+    margin-left: 5%;
+    width: 100%;
+}
+
+.logoProduct {
+    width: 101px;
+    margin-left: 17%;
+    margin-top: -4%;
+}
+
+#newPrice{
+    width: 113px;
+    top: 20px;
+}
+
+.block.ui.header {
+    height: 95px;
+    width: 376px;
+    font-size: 4rem;
+    float: right;
+    margin-top: 100px;
+    margin-right: 39px;
+    /* margin-left: 67px; */
+    background: tansparent;
+    /* padding-bottom: 0px; */
+    background-color: transparent;
+}
+
+   /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       /* #map {
+        height: 384px;
+        width: 35%;
+        float: right;
+        top: 100px;
+        right: 103px;
+        position: absolute;
+    } */
+  img.sidehaglogo{
+    margin-left: 88px;
+    width: 101px;
+  }
+
+  #map {
+    height: 400px;
+    width: 100%;
+    /* float: right; */
+    /* top: 100px; */
+    /* right: 103px; */
+    /* top: 100px; */
+    position: relative;
+    padding: 10px;
+    top: 33px;
+}
+.map-container {
+    margin-left: 35%;
+    margin-top: 153px;
+    width: 60%;
+    margin-bottom: 93px;
+   
+}
+
+
+h2.ui.header.titleproduct{
+    float: left;
+    padding: 10px;
+    margin-left: 79px;
+    margin-top: 20px;
 }

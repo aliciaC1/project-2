@@ -52,6 +52,8 @@ var dataArray3 = [];
 //Longtitude Array
 var dataArray4 = [];
 
+console.log($("#avg").attr("value"))
+
 /*
 API.getExamples().then(function (data) {
     for (var i = 0; i < data.length; i++) {
@@ -95,13 +97,13 @@ var myChart = new Chart(ctx, {
             data: dataArray2,
             fill: true,
             backgroundColor: [
-                "rgba(220,220,220,0.2)"
+                "rgba(220,220,220,0.3)"
             ],
             borderColor: [
                 "rgba(0,0,0,1)"
             ],
             pointBorderColor: "rgba(0,0,0,0.5)",
-            pointBackgroundColor: "rgba(66, 134, 244, 0.5)",
+            pointBackgroundColor: "rgba(66, 134, 244, 0.7)",
             pointBorderWidth: 8,
             pointHoverRadius: 10,
             borderWidth: 1,
@@ -125,8 +127,8 @@ var myChart = new Chart(ctx, {
                         backgroundColor: 'rgb(247, 247, 247)'
                     }
                 },
-                labelTextColor: function (tooltipItem, chart) {
-                    return '#543453';
+                labelTextColor:function(tooltipItem, chart){
+                    return '#f2c71a';
                 }
             }
 
@@ -145,8 +147,8 @@ var myChart = new Chart(ctx, {
                     display: false //this will remove only the label
                 },
                 gridLines: {
-                    display: false,
-                    color: "#FFFFFF"
+                    display: true,
+                    color: "#ffffff63"
 
                 }
             }],
@@ -159,9 +161,9 @@ var myChart = new Chart(ctx, {
 
                 },
                 gridLines: {
-                    display: false,
-                    color: "#FFFFFF"
-                }
+                    display: true,
+                    color: "#ffffff63"
+                  }
             }]
         }
     }
