@@ -37,7 +37,6 @@ db.Location.create({
       LocationId: req.body.location
     }).then(function(UserReview) {
       res.json(UserReview);
-      console.log(UserReview.ProductId);
     });
   });
 

@@ -258,8 +258,8 @@ $.ajax({
     }
     avg = sumAvg / data.length;
     std = standardDeviation(sumArray);
-    console.log(avg);
-    console.log(std);
+    console.log("AVG "+avg);
+    console.log("STD "+std);
 });
 
 //Use of Standard Deviation to Prevent "Troll" Amounts
@@ -314,10 +314,6 @@ API.getExamples().then(function (data) {
     }
 });
 */
-
-var x = $("#dataValues").attr("data-value-location");
-console.log(x);
-
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
@@ -383,6 +379,7 @@ var handleFormSubmit = function (event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
+/*
 var handleDeleteBtnClick = function () {
     var idToDelete = $(this)
         .parent()
@@ -392,7 +389,8 @@ var handleDeleteBtnClick = function () {
         //refreshExamples();
     });
 };
+*/
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+//$exampleList.on("click", ".delete", handleDeleteBtnClick);
