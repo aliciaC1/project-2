@@ -6,7 +6,7 @@
             </div>
 
             <div class="ui vertical animated button" tabindex="0" id="signin-button" onclick="handleSignInClick()">
-                <div class="hidden content"> Sign in with Google</div>
+                <div class="hidden content" onclick="handleSignInClick();"> Sign in with Google</div>
                 <div class="visible content">
                     <i class="google icon yellow"></i>
                 </div>
@@ -30,7 +30,6 @@
                     <button type="submit">Login</button>
                 </div>
             </form>
-            <button id="handleGoogleLogin" onclick="handleSignInClick();">Login with Google</button>
             <div class="ui divider"></div>
             <div class="row">
                 {{#if message}}
