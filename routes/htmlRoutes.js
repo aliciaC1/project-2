@@ -25,6 +25,8 @@ module.exports = function(app) {
     var productID = req.params.product;
     var emptySQLNumber = 0;
     var dataArray = [];
+
+    console.log("This Route HTML IS WORKING");
     
     function median(values) {
       values.sort(function (a, b) {
