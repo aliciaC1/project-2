@@ -309,16 +309,3 @@ setTimeout(() => {
         });
       }
 
-      var endpoint = 'live'
-var access_key = '4a0fc544f94ec0f2154021de9108a5f3';
-
-// get the most recent exchange rates via the "live" endpoint:
-$.ajax({
-    url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key,
-    dataType: 'jsonp',
-    success: function (json) {
-        var chineseCurrency = $("#avg").attr("value") * json.quotes.USDCNY;
-        var newChineseCurrency = parseFloat(chineseCurrency).toFixed(2);
-        $("#convertedCNY").text(newChineseCurrency);
-    }
-});
