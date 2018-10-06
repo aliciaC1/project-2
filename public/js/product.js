@@ -261,6 +261,8 @@ $.ajax({
     for (var i = 0; i < data.length; i++) {
         sumArray.push(parseInt(data[i].price));
         sumAvg += parseInt(data[i].price);
+        dataArray.push(data[i].createdAt);
+        dataArray2.push(data[i].price);
     }
     avg = sumAvg / data.length;
     std = standardDeviation(sumArray);
