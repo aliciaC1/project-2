@@ -1,6 +1,7 @@
 {{!-- #region: top header --}}
 <div class="ui secondary pointing menu right floated">
-  <a class="item active">{{user.name}}</a>
+  <a class="item active"> 
+<img class="ui avatar image" src="/imgs/paleyellowhag.png"><span>{{user.name}}</span></a>
   <a class="item" href="/logout">
     Log Out
   </a>
@@ -10,7 +11,7 @@
 {{!-- #region: vertical side bar fixed --}}
 <div class="ui left fixed vertical menu" style="overflow-y:auto;">
    <div class="item">
-    <img class="sidehaglogo" src="/imgs/logocaps.png" style="width: 202px; margin-left: 60px; padding: 40px;">
+    <img class="sidehaglogo" src="/imgs/logocaps.png" style="width: 132px; margin-left: 96px; padding: 17px;">
   </div>
    <a class="item" href="/restricted/search"><i class = "search icon"></i>Search</a>
   {{!-- currency conversion table --}}
@@ -174,7 +175,7 @@
             2 days ago {{db.userReview.createdAt}}
           </div>
           <div class="summary">
-            Hagger A  added NY Tee{{this.description}} for $8.73{{this.price}}.
+            Haggler A  added Vintage Tee{{this.description}} for $8.73{{this.price}}
           </div>
         </div>
       </div>
@@ -186,14 +187,14 @@
     <div class="ui feed">
       <div class="event">
         <div class="label">
-          <img src="/imgs/oldhag.png">
+          <img src="/imgs/lt blue hag.png">
         </div>
         <div class="content">
           <div class="date">
             3 days ago {{createdAt}}
           </div>
           <div class="summary">
-            Hagger D added Sunshine Tee{{this.description}} for $5.99{{this.price}}.
+            Haggler D added Sunshine Tee{{this.description}} for $5.99{{this.price}}
           </div>
         </div>
       </div>
@@ -204,14 +205,48 @@
     <div class="ui feed">
       <div class="event">
         <div class="label">
-          <img src="/imgs/oldhag.png">
+          <img src="/imgs/purplehag.png">
         </div>
         <div class="content">
           <div class="date">
             7 days ago {{createdAt}}
           </div>
           <div class="summary">
-            Hagger T  added 'Merica' Tee{{this.description}} for $12.50{{this.price}}.
+            Haggler T  added 'Merica' Tee{{this.description}} for $4.50{{this.price}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="item">
+    <div class="ui feed">
+      <div class="event">
+        <div class="label">
+          <img src="/imgs/hagred.png">
+        </div>
+        <div class="content">
+          <div class="date">
+            12 days ago {{createdAt}}
+          </div>
+          <div class="summary">
+            Haggler L  added Tea Tee{{this.description}} for $10.25{{this.price}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="item">
+    <div class="ui feed">
+      <div class="event">
+        <div class="label">
+          <img src="/imgs/hagyellow.png">
+        </div>
+        <div class="content">
+          <div class="date">
+            22 days ago {{createdAt}}
+          </div>
+          <div class="summary">
+            Haggler B  added NYC Tee{{this.description}} for $12.50{{this.price}}
           </div>
         </div>
       </div>
@@ -225,7 +260,8 @@
 <div class="ui grid center aligned product-dashboard">
   {{!-- product info --}}
   <div class="sixteen wide center aligned column">
-    <div class="productInfo container">
+    <div class="productInfo container" data-aos="fade-up"
+     data-aos-duration="3000">
       <h4 class="ui horizontal divider header">
         <i class="info circle icon"></i>
         product
@@ -252,7 +288,7 @@
       </div>
     </div>
     {{!-- add price pop-up --}}
-    <div class="ui flowing basic popup bottom center transition hidden" style="width: 355px; top: 121px; left: -146.906px; bottom: auto; right: auto; display: block !important;">
+    <div class="ui flowing basic popup bottom center transition hidden" style="width: 355px;top: auto;left: 257.688px;bottom: -228px;right: auto;display: block !important;">
       <div class="ui center aligned basic segment addPrice">
         <h4 class="ui horizontal divider header">
           <i class="plus icon"></i>
@@ -293,7 +329,8 @@
 </div>
 {{!-- <--! Chart--> --}}
   <div class="sixteen wide center aligned column">
-    <div class="cchart container">
+    <div class="cchart container" data-aos="fade-up"
+     data-aos-duration="3000"">
       <h4 class="ui horizontal divider header">
         <i class="chart line icon"></i>
         Price Summary
@@ -304,7 +341,8 @@
     </div>
   </div>
   <div class="sixteen wide center aligned column">
-    <div class="container">
+    <div class="container" data-aos="fade-up"
+     data-aos-duration="3000">
       <div class="map-container ">
         <h4 class="ui horizontal divider header">
           <i class="map icon"></i>
