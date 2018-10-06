@@ -35,7 +35,7 @@
 .cover-img {
     width: 85%;
     margin-left: 3%;
-    margin-top: -91px;
+    margin-top: 27px;
     opacity: 1;
     padding: 10px;
 }
@@ -85,6 +85,10 @@
     margin-left: 10px;
 }
 
+.ui.cards.feed-card{
+    margin-top: -47px;
+
+}
 #team{
     position: relative;
     padding: 60px;
@@ -182,7 +186,7 @@ h3.ui.header {
 .app-icon{
     width: 117px;
     padding: 10px;
-    margin-top: -66px;
+    margin-top: 14px;
 }
 
 .not-found{
