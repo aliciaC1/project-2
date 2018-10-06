@@ -89,7 +89,8 @@ module.exports = function(app) {
         max: max,
         min: min,
         location: locationID,
-        product: productID
+        product: productID,
+        user: req.session.user
       });
     });
   });
