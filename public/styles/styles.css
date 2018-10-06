@@ -69,6 +69,7 @@
     font-weight: 100;
 }
 
+
 #features{
     position: relative;
     display: inline-block;
@@ -77,6 +78,9 @@
     padding-top: 30px;
 }
 
+.ui.internally.celled.grid.features-grid{
+    margin-top: 78px;
+}
 .ui.cards.chart-card{
     margin-top: -36px;
     margin-left: 23%;
@@ -101,9 +105,14 @@
    
 }
 
+
+.ui.stackable.grid.team-grid{
+    margin-top: 53px;
+}
 .big.horizontal.divided.list {
     margin-left: 5%;
     padding: 25px;
+    margin-top: 111px;
 }
 
 
