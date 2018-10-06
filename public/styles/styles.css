@@ -1,3 +1,5 @@
+/* global */
+
 .main-logo{
     position: absolute;
     margin-left: 68px;
@@ -19,15 +21,107 @@
     border-bottom: 2px solid rgba(34, 36, 38, 0);
 }
 
+.ui.shape .side * {
+    -webkit-backface-visibility: visible!important;
+    backface-visibility: visible!important;
+    height: 76px;
+    width: 600px;
+    text-align: center;
+    background-color: #f9f8f8db;
+    padding: 20px;
+}
 
+/* index */
 .cover-img {
-    width: 70%;
-    margin-top: 59px;
-    margin-left: 450px;
+    width: 85%;
+    margin-left: 3%;
+    margin-top: 27px;
     opacity: 1;
     padding: 10px;
 }
 
+.ui.grid.price-display {
+    margin-right: 4%;
+    width: 37%;
+    float: right;
+    padding: 10px;
+    margin-top: -240px;
+    position: relative;
+}
+
+.slogan {
+    margin-top: -335px;
+    float: left;
+    margin-left: 56%;
+    padding: 10p;
+    border: none;
+    /* position: absolute; */
+    /* margin-bottom: 60px; */
+}
+.slogan .ui.shape .side * {
+    -webkit-backface-visibility: visible!important;
+    backface-visibility: visible!important;
+    height: 76px;
+    width:100%;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    font-weight: 100;
+}
+
+
+#features{
+    position: relative;
+    display: inline-block;
+    padding-bottom: 90px;
+    margin-top: 160px;
+    padding-top: 30px;
+}
+
+.ui.internally.celled.grid.features-grid{
+    margin-top: 78px;
+}
+.ui.cards.chart-card{
+    margin-top: -36px;
+    margin-left: 23%;
+}
+.ui.cards.currency-card{
+    margin-left: 10px;
+}
+
+.ui.cards.feed-card{
+    margin-top: -47px;
+
+}
+#team{
+    position: relative;
+    padding: 60px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#technologies{
+    position: relative;
+   
+}
+
+
+.ui.stackable.grid.team-grid{
+    margin-top: 53px;
+}
+.big.horizontal.divided.list {
+    margin-left: 5%;
+    padding: 25px;
+    margin-top: 111px;
+}
+
+
+#download{
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 30px;
+}
 h1{
     font-weight: 100;
 }
@@ -43,19 +137,50 @@ h3.ui.header {
 }
 
 
-.ui.shape .side * {
-    -webkit-backface-visibility: visible!important;
-    backface-visibility: visible!important;
-    height: 76px;
-    width: 600px;
-    text-align: center;
-    background-color: #f9f8f8db;
-    padding: 20px;
+
+.features{
+   padding: 15px;
 }
 
+#currencyfeature{
+    margin-top: 65px;
+}
+#mapfeature{
+    width: 87%;
+    margin-top: 85px;
+}
+.ui.cards.map-card{
+    margin-left: 25%;
+}
+
+#chartfeed{
+    width: 92%;
+}
+
+#feedimg {
+    margin-top: 53px;
+    width: 130%;
+    right: 10px;
+    padding: 0px;
+}
+#searchimg {
+    padding: 0px;
+    width: 118%;
+    margin-top: 76px;
+}
+.ui.card .avatar img, .ui.card img.avatar, .ui.cards>.card .avatar img, .ui.cards>.card img.avatar {
+    width: 4em;
+    height: 4em;
+    border-radius: 500rem;
+}
 .iphone-img{
     width: 63%;
-    margin-left: 200px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.apps{
+    margin-top: 119px;
 }
 
 .appStore{
@@ -64,14 +189,13 @@ h3.ui.header {
 }
 
 .apple-btn{
-    width: 360px;
-}
-
-.gplay-btn{
     width: 300px;
 }
+
 .app-icon{
-    width: 16%;
+    width: 117px;
+    padding: 10px;
+    margin-top: 14px;
 }
 
 .not-found{
@@ -111,7 +235,7 @@ h3.ui.header {
     -webkit-backface-visibility: visible!important;
     backface-visibility: visible!important;
     height: 76px;
-    width: 600px;
+    width: 400px;
     text-align: center;
     background-color: #ffffffd9;
     padding: 20px;
@@ -165,14 +289,6 @@ div.animated.button.submit {
 }
 
 
-.slogan {
-    margin-left: 158px;
-    padding: 10p;
-    margin-top: -555px;
-    border: none;
-    /* position: absolute; */
-    /* margin-bottom: 60px; */
-}
 
 #myChart{
     background-color: black;

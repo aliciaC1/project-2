@@ -16,6 +16,7 @@ $.ajax({
         var hkCurrency = averageValue * json.quotes.USDHKD;
         var skCurrency = averageValue * json.quotes.USDKRW;
         var indiaCurrency = averageValue * json.quotes.USDINR;
+        var bitcoinCurrency = averageValue * json.quotes.USDBTC;
 
 
         var newEuroCurrency = parseFloat(euroCurrency).toFixed(2);
@@ -26,6 +27,7 @@ $.ajax({
         var newHongKongCurrency = parseFloat(hkCurrency).toFixed(2);
         var newSouthKoreaCurrency = parseFloat(skCurrency).toFixed(2);
         var newIndiaCurrency = parseFloat(indiaCurrency).toFixed(2);
+        var newBitcoinCurrency = parseFloat(bitcoinCurrency).toFixed(5);
 
         $("#convertedEUR").text(newEuroCurrency);
         $("#convertedGBP").text(newGBPCurrency);
@@ -35,6 +37,7 @@ $.ajax({
         $("#convertedHKD").text(newHongKongCurrency);
         $("#convertedKRW").text(newSouthKoreaCurrency);
         $("#convertedINR").text(newIndiaCurrency);
+        $("#convertedBTC").text(newBitcoinCurrency);
 
     }
 });
