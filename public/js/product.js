@@ -324,6 +324,8 @@ API.getExamples().then(function (data) {
 });
 */
 
+console.log($("#avg").attr("data-location"));
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function (event) {
@@ -354,9 +356,11 @@ var handleFormSubmit = function (event) {
         */
         price: priceFiller,
         description: $exampleDescription.val().trim(),
-        location: 1,
-        product: 1
+        location: parseInt($("#avg").attr("data-location")),
+        product: parseInt($("#avg").attr("data-product"))
     };
+
+    console.log(example);
 
 
 
