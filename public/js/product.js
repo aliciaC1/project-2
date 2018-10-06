@@ -83,6 +83,7 @@ Chart.controllers.LineWithLine = Chart.controllers.line.extend({
             ctx.strokeStyle = 'rgba(219, 21, 21, 0.8)';
             ctx.stroke();
             ctx.restore();
+
         }
     }
 });
@@ -169,6 +170,7 @@ var myChart = new Chart(ctx, {
 
 
 });
+
 
 //GeoLocation
 
