@@ -1,6 +1,6 @@
 // set endpoint and your access key
 var endpoint = "live";
-var access_key = "4a0fc544f94ec0f2154021de9108a5f3";
+var access_key = "fdefafcae0d2e512ba85f64693e2f861";
 
 // get the most recent exchange rates via the "live" endpoint:
 $.ajax({
