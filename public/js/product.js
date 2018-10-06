@@ -379,10 +379,7 @@ var handleFormSubmit = function (event) {
         data: example
     }).then(function () {
         console.log("It Worked");
-        $exampleText.val("");
-        $exampleProduct.val("");
-        $exampleDescription.val("");
-        $examplePrice.val("");
+        location.reload();
     }
     );
 
