@@ -1,7 +1,6 @@
 {{!-- #region: top header --}}
 <div class="ui secondary pointing menu right floated">
   <a class="item active">{{user.name}}</a>
-  <a class="item" href="/restricted/search">Search</a>
   <a class="item" href="/logout">
     Log Out
   </a>
@@ -10,6 +9,10 @@
 
 {{!-- #region: vertical side bar fixed --}}
 <div class="ui left fixed vertical menu" style="overflow-y:auto;">
+   <div class="item">
+    <img class="sidehaglogo" src="/imgs/logocaps.png" style="width: 202px; margin-left: 60px; padding: 40px;">
+  </div>
+   <a class="item" href="/restricted/search"><i class = "search icon"></i>Search</a>
   {{!-- currency conversion table --}}
   <div class="item">
     <table class="ui very basic collapsing celled table" style="padding: 30px">
@@ -140,6 +143,21 @@
             <div id="convertedINR"></div>
           </td>
         </tr>
+        <tr>
+          <td>
+            <h4 class="ui image header">
+              <i class="bitcoin icon"></i>
+              <div class="content">
+                BTC
+                <div class="sub header">Bitcoin
+                </div>
+              </div>
+            </h4>
+          </td>
+          <td>
+            <div id="convertedBTC"></div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -156,7 +174,7 @@
             2 days ago {{db.userReview.createdAt}}
           </div>
           <div class="summary">
-            Hagger A {{this.user}} added NY Tee{{this.description}} for $8.73{{this.price}}.
+            Hagger A  added NY Tee{{this.description}} for $8.73{{this.price}}.
           </div>
         </div>
       </div>
@@ -175,7 +193,7 @@
             3 days ago {{createdAt}}
           </div>
           <div class="summary">
-            Hagger D {{this.user}} added Sunshine Tee{{this.description}} for $5.99{{this.price}}.
+            Hagger D added Sunshine Tee{{this.description}} for $5.99{{this.price}}.
           </div>
         </div>
       </div>
@@ -193,14 +211,11 @@
             7 days ago {{createdAt}}
           </div>
           <div class="summary">
-            Hagger T {{this.user}} added 'Merica' Tee{{this.description}} for $12.50{{this.price}}.
+            Hagger T  added 'Merica' Tee{{this.description}} for $12.50{{this.price}}.
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="item">
-    <img class="sidehaglogo" src="/imgs/logocaps.png" style="width: 202px; margin-left: 60px; padding: 40px;">
   </div>
 </div>
 
@@ -232,7 +247,7 @@
       </div>
       <div class="stackable eight wide column">
         <h3 id="avg" value="{{avg}}" data-location="{{location}}" data-product="{{product}}" class="ui block header">
-          {{avg}}
+          $ {{avg}}
         </h3>
       </div>
     </div>
