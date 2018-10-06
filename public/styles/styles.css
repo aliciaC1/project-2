@@ -81,6 +81,9 @@
     margin-top: -36px;
     margin-left: 23%;
 }
+.ui.cards.currency-card{
+    margin-left: 10px;
+}
 
 #team{
     position: relative;
