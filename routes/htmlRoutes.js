@@ -23,9 +23,11 @@ module.exports = function(app) {
 
 //  search
 
+  /*
   app.get("restricted/search", restrict, function (req, res){
     res.render("search");
   });
+  */
 
   app.get("/restricted/search", restrict, function(req, res) {
     // res.send("Wahoo! restricted area, click to <a href='/logout'>logout</a>");

@@ -1,6 +1,6 @@
 // set endpoint and your access key
 var endpoint = "live";
-var access_key = "4a0fc544f94ec0f2154021de9108a5f3";
+var access_key = "fdefafcae0d2e512ba85f64693e2f861";
 
 // get the most recent exchange rates via the "live" endpoint:
 $.ajax({
@@ -39,7 +39,6 @@ $.ajax({
     }
 });
 
-console.log("This is LOC"+$("#locationValues").attr("value"));
 //Chart JS
 
 var ctx = $("#myChart");
@@ -127,7 +126,7 @@ var myChart = new Chart(ctx, {
                         backgroundColor: 'rgb(247, 247, 247)'
                     }
                 },
-                labelTextColor:function(tooltipItem, chart){
+                labelTextColor: function (tooltipItem, chart) {
                     return '#f2c71a';
                 }
             }
@@ -163,7 +162,7 @@ var myChart = new Chart(ctx, {
                 gridLines: {
                     display: true,
                     color: "#ffffff63"
-                  }
+                }
             }]
         }
     }
@@ -175,6 +174,11 @@ var myChart = new Chart(ctx, {
 
 function geoFindMe() {
     var output = document.getElementById("out");
+
+    if (!output) {
+        console.log("OUTPUT IS NULL");
+        return;
+    }
 
     if (!navigator.geolocation) {
         output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -257,12 +261,15 @@ $.ajax({
     for (var i = 0; i < data.length; i++) {
         sumArray.push(parseInt(data[i].price));
         sumAvg += parseInt(data[i].price);
+        dataArray.push(data[i].createdAt);
+        dataArray2.push(data[i].price);
     }
     avg = sumAvg / data.length;
     std = standardDeviation(sumArray);
-    console.log("AVG "+avg);
-    console.log("STD "+std);
+    console.log("AVG " + avg);
+    console.log("STD " + std);
 });
+
 
 //Use of Standard Deviation to Prevent "Troll" Amounts
 function standardDeviation(values) {
@@ -337,7 +344,7 @@ var handleFormSubmit = function (event) {
     }
     console.log(std);
     console.log(avg);
-    
+
 
     //Creating the Object to Input to Database
     var example = {
@@ -347,8 +354,8 @@ var handleFormSubmit = function (event) {
         */
         price: priceFiller,
         description: $exampleDescription.val().trim(),
-        location: parseInt($("#locationValues").attr("value")),
-        product: parseInt($("#productValues").attr("value"))
+        location: 1,
+        product: 1
     };
 
 
@@ -366,14 +373,13 @@ var handleFormSubmit = function (event) {
     $.ajax("/api/examples", {
         type: "POST",
         data: example
-    }).then(
-        function () {
-            console.log("It Worked");
-            $exampleText.val("");
-            $exampleProduct.val("");
-            $exampleDescription.val("");
-            $examplePrice.val("");
-        }
+    }).then(function () {
+        console.log("It Worked");
+        $exampleText.val("");
+        $exampleProduct.val("");
+        $exampleDescription.val("");
+        $examplePrice.val("");
+    }
     );
 
 

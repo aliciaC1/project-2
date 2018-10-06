@@ -19,6 +19,7 @@ function register(name, email, pass, fn) {
       if (userResult) {
         return fn(new Error("A user with that email already exists!"));
       }
+      console.log("EMAIL IS " + email);
       db.User.create({
         name: name,
         email: email,

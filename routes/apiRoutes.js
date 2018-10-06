@@ -3,6 +3,7 @@ var db = require("../db/models");
 module.exports = function(app) {
   // Get all examples
   app.get("/api/examples", function(req, res) {
+    console.log("API Examples This Works")
     db.UserReview.findAll({
       include: [db.User, db.Product, db.Location]
     }).then(function(dbExamples) {
